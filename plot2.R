@@ -2,9 +2,8 @@
 ## Set the working directory
 setwd("C:/Coursera/R/exdata-data-household_power_consumption")
 
-## Read the full power consumption data set and then subset it
-data_full <- read.csv("./household_power_consumption.txt", header=T, sep=';', na.strings="?", 
-                      nrows=2075259, check.names=F, stringsAsFactors=F, comment.char="", quote='\"')
+## Read the full power consumption data set
+data_full <- read.csv("./household_power_consumption.txt", header=T, sep=';', na.strings="?") 
 
 ## format the Date column to Date type
 data_full$Date <- as.Date(data_full$Date, format="%d/%m/%Y")
@@ -22,7 +21,7 @@ datetime <- paste(as.Date(sub_data$Date), sub_data$Time)
 sub_data$Datetime <- as.POSIXct(datetime)
 
 ## Plot the data - Datetime vs Global_active_power
-plot(sub_data$Global_active_power~data$Datetime, type="l",
+plot(sub_data$Global_active_power~sub_data$Datetime, type="l",
      ylab="Global Active Power (kilowatts)", xlab="")
 
 ## save the graph into file plot2.png 
