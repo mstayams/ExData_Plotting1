@@ -1,7 +1,7 @@
 ## Set the working directory
 setwd("C:/Coursera/R/exdata-data-household_power_consumption")
 
-## Read the full power consumption data set and then subset it
+## Read the full power consumption data set
 data_full <- read.csv("./household_power_consumption.txt", header=T, sep=';', na.strings="?")
 
 ## format the Date column to Date type
